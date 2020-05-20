@@ -4,5 +4,6 @@
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
     "files.eol": "\n",
+    "files.trimFinalNewlines": true,
 
 }
