@@ -1,6 +1,7 @@
 {
     "editor.copyWithSyntaxHighlighting": false,
     "editor.fontSize": 12,
+    "editor.formatOnPaste": true,
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
