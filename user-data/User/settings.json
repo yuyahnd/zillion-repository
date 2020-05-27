@@ -10,5 +10,6 @@
     "files.eol": "\n",
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${activeEditorLong}",
 
 }
