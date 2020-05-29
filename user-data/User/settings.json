@@ -12,5 +12,6 @@
     "files.trimTrailingWhitespace": true,
     "markdown.preview.fontSize": 12,
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${activeEditorLong}",
+    "workbench.editor.enablePreview": false,
 
 }
