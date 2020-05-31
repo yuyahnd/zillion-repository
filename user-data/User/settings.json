@@ -1,4 +1,5 @@
 {
+    "editor.columnSelection": true,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.fastScrollSensitivity": 10,
     "editor.fontSize": 12,
