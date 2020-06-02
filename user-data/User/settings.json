@@ -8,6 +8,7 @@
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": true,
+    "files.autoSave": "off",
     "files.eol": "\n",
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
