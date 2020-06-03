@@ -1,6 +1,7 @@
 {
     "editor.columnSelection": true,
     "editor.copyWithSyntaxHighlighting": false,
+    "files.encoding": "utf8",
     "editor.fastScrollSensitivity": 10,
     "editor.fontSize": 12,
     "editor.formatOnPaste": true,
