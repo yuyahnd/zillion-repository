@@ -25,6 +25,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".layout.FrameLayoutActivity"
+            android:label="@string/frameLayout">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.layout.FRAME_LAYOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

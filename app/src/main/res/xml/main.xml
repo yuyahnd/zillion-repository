@@ -11,6 +11,13 @@
             <intent android:action="com.asterlist.androidsamples.layout.LINEAR_LAYOUT" />
         </Preference>
 
+        <Preference
+            android:key="frameLayout"
+            android:title="@string/frameLayout"
+            android:icon="@mipmap/ic_launcher" >
+            <intent android:action="com.asterlist.androidsamples.layout.FRAME_LAYOUT" />
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

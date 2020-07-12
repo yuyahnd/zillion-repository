@@ -8,4 +8,5 @@
     <!-- layout  -->
     <string name="layout">Layout</string>
     <string name="linearLayout">LinearLayout</string>
+    <string name="frameLayout">FrameLayout</string>
 </resources>
