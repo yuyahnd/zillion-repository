@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Android Samples</string>
 
+    <!-- common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- layout  -->
     <string name="layout">Layout</string>
+    <string name="linearLayout">LinearLayout</string>
 </resources>

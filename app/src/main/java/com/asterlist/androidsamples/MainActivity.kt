@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.container, MainFragment())
+        transaction.replace(R.id.container, MainFragment())
         transaction.commit()
     }
 }

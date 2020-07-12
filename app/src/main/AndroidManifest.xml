@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".layout.LinearLayoutActivity"
+            android:label="@string/linearLayout">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.layout.LINEAR_LAYOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
