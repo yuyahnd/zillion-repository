@@ -17,6 +17,10 @@ class FrameLayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_frame)
 
+        showBackgroundImage()
+    }
+
+    private fun showBackgroundImage() {
         fullScreen = findViewById<ImageView>(R.id.full_screen)
         try {
             resources.assets.open("img_sample_01.jpg").use {
