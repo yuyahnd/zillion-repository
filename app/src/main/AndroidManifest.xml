@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".cameracalibration.CameraCalibrationActivity"
+            android:label="@string/camera_calibration">
+            <intent-filter>
+                <action android:name="com.asterlist.android.opencv.CAMERA_CALIBRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
