@@ -38,6 +38,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".camera.CameraActivity"
+            android:label="@string/camera">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.camera.CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

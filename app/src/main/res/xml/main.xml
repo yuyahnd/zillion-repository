@@ -18,6 +18,19 @@
             <intent android:action="com.asterlist.androidsamples.layout.FRAME_LAYOUT" />
         </Preference>
 
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/camera">
+
+        <Preference
+            android:key="camera"
+            android:title="@string/camera"
+            android:icon="@mipmap/ic_launcher" >
+            <intent android:action="com.asterlist.androidsamples.camera.CAMERA" />
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -9,4 +9,7 @@
     <string name="layout">Layout</string>
     <string name="linearLayout">LinearLayout</string>
     <string name="frameLayout">FrameLayout</string>
+
+    <!-- camera  -->
+    <string name="camera">Camera</string>
 </resources>
