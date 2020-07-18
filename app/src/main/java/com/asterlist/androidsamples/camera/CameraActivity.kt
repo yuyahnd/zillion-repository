@@ -27,8 +27,8 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var mPreviewView : TextureView
     private lateinit var mImageReader : ImageReader
 
-    private var mbackgroundThread : HandlerThread? = null
-    private var mbackgroundHandler : Handler? = null
+    private var mBackgroundThread : HandlerThread? = null
+    private var mBackgroundHandler : Handler? = null
     private var mCameraDevice : CameraDevice? = null
     private var mPreviewRequestBuilder : CaptureRequest.Builder? = null
     private var mPreviewRequest : CaptureRequest? = null
@@ -56,7 +56,6 @@ class CameraActivity : AppCompatActivity() {
         override fun onOpened(cameraDevice: CameraDevice) {
             mCameraDevice = cameraDevice
             createCameraPreviewSession()
-
         }
 
         override fun onDisconnected(cameraDevice: CameraDevice) {
@@ -70,7 +69,6 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
@@ -78,6 +76,16 @@ class CameraActivity : AppCompatActivity() {
 
         mPreviewView = findViewById<TextureView>(R.id.textureView)
         mPreviewView.surfaceTextureListener = mSurfaceTextureListener
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopBackgroundThread()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopBackgroundThread()
     }
 
     private fun openCamera() {
@@ -89,11 +97,10 @@ class CameraActivity : AppCompatActivity() {
                 return
             }
             val cameraId = cameraManager.cameraIdList[0]
-            cameraManager.openCamera(cameraId, mStateCallback, mbackgroundHandler)
+            cameraManager.openCamera(cameraId, mStateCallback, mBackgroundHandler)
         } catch (e : CameraAccessException) {
 
         }
-
     }
 
     private fun createCameraPreviewSession() {
@@ -112,7 +119,7 @@ class CameraActivity : AppCompatActivity() {
                             mCaptureSession = cameraCaptureSession
                             mPreviewRequestBuilder?.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
                             mPreviewRequest = mPreviewRequestBuilder?.build()
-                            cameraCaptureSession.setRepeatingRequest(mPreviewRequest!!, null, mbackgroundHandler)
+                            cameraCaptureSession.setRepeatingRequest(mPreviewRequest!!, null, mBackgroundHandler)
                         } catch (e : CameraAccessException) {
 
                         }
@@ -125,13 +132,23 @@ class CameraActivity : AppCompatActivity() {
         } catch (e : CameraAccessException) {
 
         }
-
     }
 
-
     private fun startBackgroundThread() {
-        mbackgroundThread = HandlerThread("CameraBackground").also { it.start() }
-        mbackgroundHandler = Handler(mbackgroundThread!!.looper)
+        stopBackgroundThread()
+        mBackgroundThread = HandlerThread("CameraBackground").also { it.start() }
+        mBackgroundHandler = Handler(mBackgroundThread!!.looper)
+    }
+
+    private fun stopBackgroundThread() {
+        mBackgroundThread?.quitSafely()
+        try {
+            mBackgroundThread?.join()
+            mBackgroundThread = null
+            mBackgroundHandler = null
+        } catch (e : InterruptedException) {
+            // NOP
+        }
     }
 
     private fun requestCameraPermission() {
