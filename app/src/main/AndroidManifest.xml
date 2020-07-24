@@ -33,9 +33,18 @@
         <activity android:name=".cameracalibration.CameraCalibrationActivity"
             android:label="@string/camera_calibration"
             android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation" >
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.DeviceDefault.Light">
             <intent-filter>
                 <action android:name="com.asterlist.android.opencv.CAMERA_CALIBRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".camera.CameraActivity"
+            android:label="@string/camera">
+            <intent-filter>
+                <action android:name="com.asterlist.android.opencv.CAMERA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

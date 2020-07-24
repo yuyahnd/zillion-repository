@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Android OpenCV</string>
+    <string name="camera">Camera</string>
     <string name="camera_calibration">Camera calibration</string>
+
 
     <!-- OCV Camera Calibration -->
     <string name="action_calibrate">Calibrate</string>
