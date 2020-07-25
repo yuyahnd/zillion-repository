@@ -105,4 +105,28 @@ class ImageConverter {
         }
         return output
     }
+
+
+    private fun resize(image: Image): ByteBuffer {
+        val yuv = ByteArray(image.width/2 * image.height/2 * 3 / 2)
+        val imageBytes = convertYuvBuffer(image).array()
+
+        var i = 0
+        for (y in 0 until image.height step 2) {
+            for (x in 0 until image.height step 2) {
+                yuv[i] = imageBytes[y * image.width + x]
+                i++
+            }
+        }
+
+        for (y in 0 until image.height / 2 step 2) {
+            for (x in 0 until image.width step 4) {
+                yuv[i] = imageBytes[(image.width * image.height) + (y * image.width) + x]
+                i++
+                yuv[i] = imageBytes[(image.width * image.height) + (y * image.width) + (x + 1)]
+                i++
+            }
+        }
+        return ByteBuffer.wrap(yuv)
+    }
 }
