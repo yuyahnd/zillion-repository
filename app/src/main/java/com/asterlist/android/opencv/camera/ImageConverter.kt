@@ -106,10 +106,44 @@ class ImageConverter {
         return output
     }
 
+    fun resizeYuvImage(context: Context, image: Image): Bitmap? {
+        var yBuffer = image.planes[0].buffer
+        var uBuffer = image.planes[1].buffer
+        var vBuffer = image.planes[2].buffer
 
-    private fun resize(image: Image): ByteBuffer {
+        var ySize = yBuffer.remaining()
+        var uSize = uBuffer.remaining()
+        var vSize = vBuffer.remaining()
+
+        var imageBytes = ByteArray(ySize + uSize + vSize)
+        yBuffer.get(imageBytes, 0, ySize)
+        vBuffer.get(imageBytes, ySize, vSize)
+        uBuffer.get(imageBytes, ySize + vSize, uSize)
+
+        var yuvBytes = resize(imageBytes, image)
+
+        val rs = RenderScript.create(context)
+        val bitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
+        val allocationRgb = Allocation.createFromBitmap(rs, bitmap)
+
+        val allocationYuv = Allocation.createSized(rs, Element.U8(rs), yuvBytes.array().size)
+        allocationYuv.copyFrom(yuvBytes.array())
+
+        var scriptYuvToRgb = ScriptIntrinsicYuvToRGB.create(rs, Element.U8_4(rs))
+        scriptYuvToRgb.setInput(allocationYuv)
+        scriptYuvToRgb.forEach(allocationRgb)
+
+        allocationRgb.copyTo(bitmap)
+
+        allocationYuv.destroy()
+        allocationRgb.destroy()
+        rs.destroy()
+
+        return bitmap
+    }
+
+    private fun resize(imageBytes: ByteArray, image: Image): ByteBuffer {
         val yuv = ByteArray(image.width/2 * image.height/2 * 3 / 2)
-        val imageBytes = convertYuvBuffer(image).array()
 
         var i = 0
         for (y in 0 until image.height step 2) {

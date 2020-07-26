@@ -187,6 +187,7 @@ class CameraActivity : Activity() {
         mat.postRotate(90F)
 
         var bitmapOrigne = mImageConverter.convertYuvToRgb(this@CameraActivity, image)
+//        var bitmapOrigne = mImageConverter.resizeYuvImage(this@CameraActivity, image)
         var bitmap = Bitmap.createBitmap(bitmapOrigne, 0, 0, bitmapOrigne!!.width, bitmapOrigne!!.height, mat, true);
 
         var canvas = mPreviewView?.lockCanvas()
