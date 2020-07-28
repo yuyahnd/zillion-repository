@@ -3,14 +3,62 @@ package com.asterlist.android.opencv.camera
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.ImageFormat
+import android.graphics.Rect
+import android.graphics.YuvImage
 import android.media.Image
 import android.renderscript.Allocation
 import android.renderscript.Element
 import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicYuvToRGB
+import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 
 class ImageConverter {
+    
+    /**
+     * Image から JPEG バイト配列変換
+     */
+    fun imageToJpegByteArray(image: Image): ByteArray? {
+        return when(image.format) {
+            ImageFormat.YUV_420_888 -> {
+                return NV21toJPEG(YUV_420_888toNV21(image), image.width, image.height)
+            }
+            else -> {
+                return null
+            }
+        }
+    }
+
+    /**
+     * YUV_420_888 から NV21 へ変換
+     */
+    private fun YUV_420_888toNV21(image: Image): ByteArray {
+        val yBuffer = image.planes[0].buffer
+        val uBuffer = image.planes[1].buffer
+        val vBuffer = image.planes[2].buffer
+
+        val ySize = yBuffer.remaining()
+        val uSize = uBuffer.remaining()
+        val vSize = vBuffer.remaining()
+
+        val nv21 = ByteArray(ySize + uSize + vSize)
+
+        yBuffer.get(nv21, 0, ySize)
+        vBuffer.get(nv21, ySize, vSize)
+        uBuffer.get(nv21, ySize + vSize, uSize)
+        return nv21
+    }
+
+    /**
+     * quality 0：高圧縮 ~ 100:無圧縮
+     */
+    private fun NV21toJPEG(nv21: ByteArray, width: Int, height: Int): ByteArray {
+        val out = ByteArrayOutputStream()
+        val yuvImage = YuvImage(nv21, ImageFormat.NV21, width, height, null)
+        val quality = 100
+        yuvImage.compressToJpeg(Rect(0, 0, width, height), quality, out)
+        return out.toByteArray()
+    }
 
     fun convertYuvToRgb(context: Context, image: Image): Bitmap? {
         if (image.format != ImageFormat.YUV_420_888) {
