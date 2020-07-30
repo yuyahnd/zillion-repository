@@ -1,5 +1,5 @@
 {
-    "editor.columnSelection": true,
+    "editor.columnSelection": false,
     "editor.copyWithSyntaxHighlighting": false,
     "files.encoding": "utf8",
     "editor.fastScrollSensitivity": 10,
