@@ -33,4 +33,16 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        android:title="@string/sensor">
+
+        <Preference
+            android:key="screen_orientation"
+            android:title="@string/screen_orientation" >
+            <intent android:action="com.asterlist.androidsamples.sensor.ORIENTATION" />
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

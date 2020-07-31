@@ -46,6 +46,16 @@
             </intent-filter>
         </activity>
 
+
+        <activity android:name=".sensor.ScreenOrientationActivity"
+            android:label="@string/screen_orientation">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.sensor.ORIENTATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

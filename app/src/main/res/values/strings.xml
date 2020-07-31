@@ -12,4 +12,9 @@
 
     <!-- camera  -->
     <string name="camera">Camera</string>
+
+    <!-- sensor  -->
+    <string name="sensor">Sensor</string>
+    <string name="screen_orientation">Screen Orientation</string>
+
 </resources>
