@@ -45,4 +45,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/storage">
+
+        <Preference
+            android:key="external_storage"
+            android:title="@string/external_storage" >
+            <intent android:action="com.asterlist.androidsamples.storage.EXTERNAL_STORAGE" />
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

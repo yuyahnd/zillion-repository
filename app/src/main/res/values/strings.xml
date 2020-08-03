@@ -17,4 +17,8 @@
     <string name="sensor">Sensor</string>
     <string name="screen_orientation">Screen Orientation</string>
 
+    <!-- storage -->
+    <string name="storage">Storage</string>
+    <string name="external_storage">External Storage</string>
+
 </resources>
