@@ -2,6 +2,7 @@ package com.asterlist.androidsamples.storage
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.media.MediaScannerConnection
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -46,6 +47,8 @@ class ExternalStorageActivity : AppCompatActivity() {
                     buff.close()
                 }
             }
+            // 書き込んだファイルを通知
+            MediaScannerConnection.scanFile(this, arrayOf(mFile.absoluteFile.toString()), null, null)
         } catch (e: IOException) {
             e.printStackTrace()
         }
