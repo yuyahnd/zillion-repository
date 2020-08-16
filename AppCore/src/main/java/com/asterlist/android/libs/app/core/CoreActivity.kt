@@ -3,6 +3,7 @@ package com.asterlist.android.libs.app.core
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
 open class CoreActivity : AppCompatActivity() {
 
@@ -43,5 +44,11 @@ open class CoreActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (BuildConfig.DEBUG) {Log.d(TAG, "onSaveInstanceState")}
+    }
+
+    fun replaceFragment(containerViewId: Int, fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(containerViewId, fragment)
+        transaction.commit()
     }
 }
