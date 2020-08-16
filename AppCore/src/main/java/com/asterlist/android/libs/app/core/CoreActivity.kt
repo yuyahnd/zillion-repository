@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
-class CoreActivity : AppCompatActivity() {
+open class CoreActivity : AppCompatActivity() {
 
     companion object {
         private val TAG = "CoreActivity"
