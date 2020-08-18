@@ -12,6 +12,7 @@
 
     <!-- camera  -->
     <string name="camera">Camera</string>
+    <string name="custom_camera">Custom Camera</string>
 
     <!-- sensor  -->
     <string name="sensor">Sensor</string>

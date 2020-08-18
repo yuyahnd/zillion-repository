@@ -31,6 +31,13 @@
             <intent android:action="com.asterlist.androidsamples.camera.CAMERA" />
         </Preference>
 
+        <Preference
+            android:key="customCamera"
+            android:title="@string/custom_camera"
+            android:icon="@mipmap/ic_launcher" >
+            <intent android:action="com.asterlist.androidsamples.camera.CUSTOM_CAMERA" />
+        </Preference>
+
     </PreferenceCategory>
 
 

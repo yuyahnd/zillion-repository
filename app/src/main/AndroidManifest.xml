@@ -49,6 +49,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".camera.CustomCameraActivity"
+            android:label="@string/custom_camera">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.camera.CUSTOM_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".sensor.ScreenOrientationActivity"
             android:label="@string/screen_orientation">
