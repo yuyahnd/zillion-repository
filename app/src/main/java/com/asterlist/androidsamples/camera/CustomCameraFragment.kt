@@ -40,7 +40,7 @@ class CustomCameraFragment : Fragment() {
 
     var onImageAvailable: ((image: Image, imageList: ArrayList<Image>) -> Unit)? = null
 
-    private lateinit var mtextureView: TextureView
+    private lateinit var mTextureView: TextureView
 
     private var mCameraDevice: CameraDevice? = null
     private var mCameraThread: HandlerThread? = null
@@ -68,7 +68,7 @@ class CustomCameraFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mtextureView = view.findViewById(R.id.textureView)
+        mTextureView = view.findViewById(R.id.textureView)
     }
 
     override fun onResume() {
@@ -198,7 +198,7 @@ class CustomCameraFragment : Fragment() {
 
     private fun startImageReaderThread(): Handler {
         stopImageReaderThread()
-        mImageReaderThread = HandlerThread("Camera Thread").also { it.start() }
+        mImageReaderThread = HandlerThread("ImageReader Thread").also { it.start() }
         mImageReaderHandler = Handler(mImageReaderThread!!.looper)
         return mImageReaderHandler!!
     }
