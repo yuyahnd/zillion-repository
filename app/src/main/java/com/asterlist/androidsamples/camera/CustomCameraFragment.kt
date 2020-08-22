@@ -57,6 +57,8 @@ class CustomCameraFragment : Fragment() {
 
     private lateinit var mCaptureList: ArrayList<Image>
 
+    private var mImageHandler = ThreadHandler("Image Thread")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mCaptureList = ArrayList<Image>(maxImages)
@@ -73,12 +75,14 @@ class CustomCameraFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        mImageHandler.startThread()
         connectCamera(requireContext())
     }
 
     override fun onPause() {
         super.onPause()
         disconnectCamera()
+        mImageHandler.stopThread()
     }
 
     private fun connectCamera(context: Context) {
@@ -170,7 +174,9 @@ class CustomCameraFragment : Fragment() {
     private var mOnCaptureImageAvailableListener = ImageReader.OnImageAvailableListener {imageReader ->
         val image = imageReader.acquireNextImage() ?: return@OnImageAvailableListener
 
-        onImageAvailable?.invoke(image, mCaptureList)
+        mImageHandler.post {
+            onImageAvailable?.invoke(image, mCaptureList)
+        }
 
         if (maxImages < mCaptureList.size) {
             mCaptureList.removeAt(0)?.close()
