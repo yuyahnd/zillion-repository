@@ -52,12 +52,11 @@ class CustomCameraFragment : Fragment() {
 
 
     private var mImageReader: ImageReader? = null
-    private var mImageReaderThread: HandlerThread? = null
-    private var mImageReaderHandler: Handler? = null
+    private var mImageReaderHandler = ThreadHandler("ImageReader Thread")
 
     private lateinit var mCaptureList: ArrayList<Image>
 
-    private var mImageHandler = ThreadHandler("Image Thread")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,14 +74,12 @@ class CustomCameraFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        mImageHandler.startThread()
         connectCamera(requireContext())
     }
 
     override fun onPause() {
         super.onPause()
         disconnectCamera()
-        mImageHandler.stopThread()
     }
 
     private fun connectCamera(context: Context) {
@@ -167,16 +164,14 @@ class CustomCameraFragment : Fragment() {
 
     private fun createImageReader(): ImageReader {
         mImageReader = ImageReader.newInstance(captureSize.width, captureSize.height, format, maxImages + SURPLUS_IMAGES)
-        mImageReader!!.setOnImageAvailableListener(mOnCaptureImageAvailableListener, startImageReaderThread())
+        mImageReader!!.setOnImageAvailableListener(mOnCaptureImageAvailableListener, mImageReaderHandler.startThread())
         return mImageReader!!
     }
 
     private var mOnCaptureImageAvailableListener = ImageReader.OnImageAvailableListener {imageReader ->
         val image = imageReader.acquireNextImage() ?: return@OnImageAvailableListener
 
-        mImageHandler.post {
-            onImageAvailable?.invoke(image, mCaptureList)
-        }
+        onImageAvailable?.invoke(image, mCaptureList)
 
         if (maxImages < mCaptureList.size) {
             mCaptureList.removeAt(0)?.close()
@@ -197,24 +192,6 @@ class CustomCameraFragment : Fragment() {
             mCameraThread?.join()
             mCameraThread = null
             mCameraHandler = null
-        } catch (e: InterruptedException) {
-            Log.w(TAG, "Error: ", e)
-        }
-    }
-
-    private fun startImageReaderThread(): Handler {
-        stopImageReaderThread()
-        mImageReaderThread = HandlerThread("ImageReader Thread").also { it.start() }
-        mImageReaderHandler = Handler(mImageReaderThread!!.looper)
-        return mImageReaderHandler!!
-    }
-
-    private fun stopImageReaderThread() {
-        mImageReaderThread?.quitSafely()
-        try {
-            mImageReaderThread?.join()
-            mImageReaderThread = null
-            mImageReaderHandler = null
         } catch (e: InterruptedException) {
             Log.w(TAG, "Error: ", e)
         }
