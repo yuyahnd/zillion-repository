@@ -4,4 +4,6 @@ class Constant {
     companion object {
         const val TAG = "Constant"
     }
+
+    val FINAL = "final"
 }
