@@ -53,6 +53,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/service">
+
+        <Preference
+            android:key="bind_service"
+            android:title="@string/bind_service" >
+            <intent android:action="com.asterlist.androidsamples.service.bind.BIND_SERVICE" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/storage">
 
         <Preference

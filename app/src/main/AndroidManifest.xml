@@ -65,6 +65,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".service.bind.BindServiceActivity"
+            android:label="@string/bind_service">
+            <intent-filter>
+                <action android:name="com.asterlist.androidsamples.service.bind.BIND_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".storage.ExternalStorageActivity"
             android:label="@string/external_storage">
             <intent-filter>
@@ -72,6 +80,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service android:name=".service.bind.BindService"/>
 
     </application>
 

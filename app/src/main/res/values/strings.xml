@@ -18,6 +18,10 @@
     <string name="sensor">Sensor</string>
     <string name="screen_orientation">Screen Orientation</string>
 
+    <!-- service -->
+    <string name="service">Service</string>
+    <string name="bind_service">Bind Service</string>
+
     <!-- storage -->
     <string name="storage">Storage</string>
     <string name="external_storage">External Storage</string>
