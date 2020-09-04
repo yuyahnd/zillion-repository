@@ -73,13 +73,13 @@ class BindServiceActivity : AppCompatActivity() {
     }
 
     class ReplyHandler(context: Context) : Handler() {
-        private val mContxt = context
+        private val mContext = context
 
         override fun handleMessage(msg: Message) {
             Log.d(TAG, "handleMessage")
             when(msg.what) {
                 BindService.MSG_FINISH -> {
-                    Toast.makeText(mContxt, msg.obj.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(mContext, msg.obj.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
         }

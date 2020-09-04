@@ -16,14 +16,15 @@ class BindService : Service() {
 
     private lateinit var mMessenger: Messenger
 
-    internal class IncomingHandler(context: Context): Handler() {
-        private val applicationContext: Context = context.applicationContext
+    internal class IncomingHandler(bindService: BindService): Handler() {
+        private val bindService = bindService
+        private val applicationContext: Context = bindService.applicationContext
 
         override fun handleMessage(msg: Message) {
             Log.d(TAG, "handleMessage")
             when(msg.what) {
                 MSG_SAY_HELLO -> {
-                    Toast.makeText(applicationContext, "HELLO!", Toast.LENGTH_SHORT).show()
+                    bindService.sayHello()
                 }
                 else -> {
                     super.handleMessage(msg)
@@ -40,6 +41,10 @@ class BindService : Service() {
     override fun onBind(intent: Intent?): IBinder? {
         mMessenger = Messenger(IncomingHandler(this))
         return mMessenger.binder
+    }
+
+    private fun sayHello() {
+        Toast.makeText(applicationContext, "HELLO!", Toast.LENGTH_SHORT).show()
     }
 
 }
