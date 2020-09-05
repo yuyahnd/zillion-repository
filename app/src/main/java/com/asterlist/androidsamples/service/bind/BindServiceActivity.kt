@@ -72,7 +72,7 @@ class BindServiceActivity : AppCompatActivity() {
         }
     }
 
-    class ReplyHandler(context: Context) : Handler() {
+    internal class ReplyHandler(context: Context) : Handler() {
         private val mContext = context
 
         override fun handleMessage(msg: Message) {
