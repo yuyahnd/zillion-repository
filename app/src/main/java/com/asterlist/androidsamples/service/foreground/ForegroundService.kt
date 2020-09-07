@@ -9,4 +9,8 @@ class ForegroundService : Service() {
     override fun onBind(intent: Intent?): IBinder? {
         throw UnsupportedOperationException()
     }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        return super.onStartCommand(intent, flags, startId)
+    }
 }
