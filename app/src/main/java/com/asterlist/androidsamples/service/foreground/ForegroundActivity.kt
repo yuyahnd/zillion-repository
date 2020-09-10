@@ -1,4 +1,7 @@
 package com.asterlist.androidsamples.service.foreground
 
-class ForegroundActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class ForegroundActivity : AppCompatActivity() {
+
 }
