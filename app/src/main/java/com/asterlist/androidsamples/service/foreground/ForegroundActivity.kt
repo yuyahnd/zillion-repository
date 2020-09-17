@@ -13,6 +13,10 @@ class ForegroundActivity : AppCompatActivity() {
         super.onStart()
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     override fun onStop() {
         super.onStop()
     }
