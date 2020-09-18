@@ -17,6 +17,10 @@ class ForegroundActivity : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onPause() {
+        super.onPause()
+    }
+
     override fun onStop() {
         super.onStop()
     }
