@@ -13,4 +13,8 @@ class ForegroundService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return super.onStartCommand(intent, flags, startId)
     }
+
+    override fun onCreate() {
+        super.onCreate()
+    }
 }
