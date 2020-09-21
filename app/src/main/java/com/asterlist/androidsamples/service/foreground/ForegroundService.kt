@@ -17,4 +17,8 @@ class ForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
