@@ -10,6 +10,10 @@ class ForegroundService : Service() {
         throw UnsupportedOperationException()
     }
 
+    override fun onUnbind(intent: Intent?): Boolean {
+        return super.onUnbind(intent)
+    }
+    
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return super.onStartCommand(intent, flags, startId)
     }
@@ -21,4 +25,5 @@ class ForegroundService : Service() {
     override fun onDestroy() {
         super.onDestroy()
     }
+
 }
