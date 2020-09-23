@@ -26,4 +26,7 @@ class ForegroundService : Service() {
         super.onDestroy()
     }
 
+    override fun onLowMemory() {
+        super.onLowMemory()
+    }
 }
