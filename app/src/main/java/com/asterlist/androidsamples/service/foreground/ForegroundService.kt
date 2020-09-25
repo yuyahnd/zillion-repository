@@ -2,6 +2,7 @@ package com.asterlist.androidsamples.service.foreground
 
 import android.app.Service
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.IBinder
 
 class ForegroundService : Service() {
@@ -32,5 +33,9 @@ class ForegroundService : Service() {
 
     override fun onLowMemory() {
         super.onLowMemory()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
     }
 }
