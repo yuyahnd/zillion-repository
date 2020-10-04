@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  alt:
+    build:
+      context: ./dockerfiles/ubuntu/20.04
+    image: alt-ubuntu:20.04
+    hostname: alt
+    tty: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /opt/alt
+    working_dir: /opt/alt
