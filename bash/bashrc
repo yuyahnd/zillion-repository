@@ -1,4 +1,5 @@
 alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -l'
 alias l='ls -CF'
+alias la='ls -A'
 
