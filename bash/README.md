@@ -3,7 +3,7 @@
 ## setup
 
 ```
-if [ -f ~/ctl/bashrc ]; then
-    . ~/ctl/bashrc
+if [ -f ~/ctl/bash/bashrc ]; then
+    . ~/ctl/bash/bashrc
 fi
 ```
