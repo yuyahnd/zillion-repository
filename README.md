@@ -12,5 +12,5 @@ After unzipping the VS Code download, create a data folder within VS Code's fold
 ```
 
 ```
-git clone https://github.com/yuyahnd/vscode.git VSCode/data
+$ git clone https://github.com/yuyahnd/vscode.git VSCode/data
 ```
