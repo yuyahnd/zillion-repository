@@ -12,8 +12,10 @@ ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
 ENV LC_ALL=ja_JP.UTF-8
 
-RUN apt-get install -y python3 \
-    python3-pip
+RUN apt-get install -y \
+    python3 \
+    python3-pip \
+    ffmpeg
 
 WORKDIR $ALT_DIR
 COPY requirements.txt $ALT_DIR
