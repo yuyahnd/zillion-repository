@@ -13,6 +13,7 @@ ENV LANGUAGE ja_JP:ja
 ENV LC_ALL=ja_JP.UTF-8
 
 RUN apt-get install -y \
+    git \
     python3 \
     python3-pip \
     ffmpeg
@@ -20,3 +21,4 @@ RUN apt-get install -y \
 WORKDIR $ALT_DIR
 COPY requirements.txt $ALT_DIR
 RUN pip3 install -r requirements.txt
+RUN pip3 install git+https://github.com/yuyahnd/spya.git
