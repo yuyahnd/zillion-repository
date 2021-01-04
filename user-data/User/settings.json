@@ -10,6 +10,9 @@
     "[python]": {
         "editor.rulers": [80],
     },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
     "settingsSync.ignoredSettings": [
         "terminal.external.windowsExec",
         "terminal.integrated.shell.windows",
