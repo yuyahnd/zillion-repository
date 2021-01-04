@@ -1,5 +1,6 @@
 {
     "editor.minimap.enabled": false,
+    "files.autoGuessEncoding": true,
     "files.encoding": "utf8",
     "files.eol": "\n",
     "files.trimFinalNewlines": true,
