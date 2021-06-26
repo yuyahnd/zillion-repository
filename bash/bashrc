@@ -22,3 +22,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+if type "brew" > /dev/null 2>&1; then
+    if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+        source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+    fi
+fi
