@@ -1,7 +1,22 @@
 version: '3.5'
 services:
+## ubuntu
   ubuntu:
     build:
       context: ./docker/ubuntu
       args:
         - UBUNTU_VERSION=${UBUNTU_VERSION}
+    volumes:
+        - ${APP_ROOT_PATH_HOST}:${APP_ROOT_PATH_CONTAINER}
+    tty: true
+
+## python
+  python:
+    build:
+      context: ./docker/python
+      args:
+        - PYTHON_VERSION=${PYTHON_VERSION}
+    volumes:
+        - ${APP_ROOT_PATH_HOST}:${APP_ROOT_PATH_CONTAINER}
+    tty: true
+    working_dir: ${APP_ROOT_PATH_CONTAINER}
