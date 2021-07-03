@@ -1,0 +1,7 @@
+version: '3.5'
+services:
+  ubuntu:
+    build:
+      context: ./docker/ubuntu
+      args:
+        - UBUNTU_VERSION=${UBUNTU_VERSION}

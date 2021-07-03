@@ -1,0 +1,3 @@
+# Image Setup
+ARG UBUNTU_VERSION
+FROM ubuntu:${UBUNTU_VERSION}
