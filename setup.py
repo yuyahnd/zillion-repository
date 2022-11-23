@@ -9,15 +9,14 @@ def _requires_from_file(filename):
     return open(filename).read().splitlines()
 
 setup(
-    name='ape',
+    name='cad',
     version='0.0.1',
     license='MIT',
     description='Command Assist Driver',
     author='Yuya Honda',
     url='https://github.com/yuyahnd/cad.git',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
+    packages=find_packages(),
+    py_modules=[splitext(basename(path))[0] for path in glob('*.py')],
     include_package_data=True,
     zip_safe=False,
     install_requires=_requires_from_file('requirements.txt'),
