@@ -8,7 +8,6 @@ $ git clone https://github.com/yuyahnd/cad.git
 $ python -m venv venv
 $ . venv/Scripts/activate
 $ python -m pip install --upgrade pip
-$ pip install -e .
 ```
 
 ```
