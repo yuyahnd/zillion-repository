@@ -1,0 +1,26 @@
+{
+    "editor.minimap.enabled": false,
+    "files.autoGuessEncoding": true,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${activeEditorLong}",
+    "workbench.editor.enablePreview": false,
+    "[python]": {
+        "editor.rulers": [80],
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
+    "settingsSync.ignoredSettings": [
+        "terminal.external.windowsExec",
+        "terminal.integrated.shell.windows",
+        "remote.SSH.remotePlatform"
+    ],
+    "terminal.external.windowsExec": "\"C:\\Program Files\\Git\\bin\\bash.exe\"",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "remote.SSH.remotePlatform": {
+        "xps": "linux"
+    },
+}

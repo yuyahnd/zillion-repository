@@ -1,0 +1,13 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+[
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorHasSelection && editorTextFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.transformToLowercase",
+        "when": "editorHasSelection && editorTextFocus"
+    },
+]
