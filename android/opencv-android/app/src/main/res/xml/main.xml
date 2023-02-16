@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="camera"
+        android:title="@string/camera"
+        android:icon="@drawable/opencv" >
+        <intent android:action="com.asterlist.android.opencv.CAMERA" />
+    </Preference>
+
+    <Preference
+        android:key="camera_calibration"
+        android:title="@string/camera_calibration"
+        android:icon="@drawable/opencv" >
+        <intent android:action="com.asterlist.android.opencv.CAMERA_CALIBRATION" />
+    </Preference>
+
+</PreferenceScreen>
