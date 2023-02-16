@@ -1,0 +1,3 @@
+include ':AARSamples'
+include ':app'
+rootProject.name = "AndroidAARSamples"
