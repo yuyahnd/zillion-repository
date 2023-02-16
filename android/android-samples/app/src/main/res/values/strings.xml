@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Android Samples</string>
+
+    <!-- common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- layout  -->
+    <string name="layout">Layout</string>
+    <string name="linearLayout">LinearLayout</string>
+    <string name="frameLayout">FrameLayout</string>
+
+    <!-- camera  -->
+    <string name="camera">Camera</string>
+    <string name="custom_camera">Custom Camera</string>
+
+    <!-- sensor  -->
+    <string name="sensor">Sensor</string>
+    <string name="screen_orientation">Screen Orientation</string>
+
+    <!-- service -->
+    <string name="service">Service</string>
+    <string name="bind_service">Bind Service</string>
+
+    <!-- storage -->
+    <string name="storage">Storage</string>
+    <string name="external_storage">External Storage</string>
+
+</resources>
